@@ -1,6 +1,11 @@
 $(function(){
   var current_color = '#ffef6c'
 
+  var add_event_div = "<div class='add-event-section'>"+
+  "<div><input id='add-event-input' placeholder='Nuevo Evento' value=''/>"+
+  "<span class='top-triangle'></span>"+
+  "<i class='fa fa-map-marker'></i></div></div>";
+
   var updateColor = function(){
     $('.background-color').css('background', current_color);
     $('.fc-center h2').css('color', current_color);
@@ -83,6 +88,41 @@ $(function(){
       if (date.format('YYYY-MM-DD') == '2017-07-15') {
         cell.addClass('has-event');
         cell.append('<span class="with-event"></span>');
+      }
+    },
+    dayClick: function(date, jsEvent, view){
+      jsEvent.preventDefault();
+
+      var $el = $(this);
+
+      if ($el.hasClass('fc-other-month')) {
+        return false;
+      }
+
+      if ($el.hasClass('has-event')) {
+
+      }
+
+      var $week = $el.closest('.fc-week');
+      var $week_open = $('#calendar-section').find('.fc-week-open');
+      var position = $el.position();
+      console.log($week_open);
+      if ($week_open.length == 0) {
+        $week.stop().animate({
+          'margin-bottom': '70px'
+        }, 250).addClass('fc-week-open');
+
+        $el.addClass('new-event-date');
+        $el.css({
+          'background': current_color,
+          'border-color': current_color
+        });
+
+        $el.closest('.fc-bg').next().find("td[data-date = '"+date.format()+"']").css('color', 'black');
+        $week.append(add_event_div);
+
+      }else{
+
       }
     }
   });
