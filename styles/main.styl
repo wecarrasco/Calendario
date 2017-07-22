@@ -1,0 +1,258 @@
+@import "nib"
+
+tomato = #f55a66
+mediumvioletred = #dc1573
+crimson = #dd2224
+orangered = #f44100
+orangered-light = #ff6600
+darkorange = #fc7900
+sandybrown = #ffbd49
+khaki = #ffef6c
+yellowgreen = #84bc35
+turquoise = #1de6d4
+darkcyan = #00a59d
+dodgerblue = #008acf
+dodgerblue-dark = #0070ff
+blue = #0021eb
+blueviolet = #9337fe
+darkviolet = #6200d3
+darkslategray = #2e3542
+
+
+html,
+body
+  height: 100%
+
+body
+  background: khaki
+  font-family 'Roboto', sans-serif
+  transition 0.3s ease all
+
+h3
+  font-size 1.6em
+  font-weight 400
+  margin-top 0
+
+section
+  background #2e3542
+  color white
+  width 380px
+  height 430px
+  box-shadow 10px 10px 30px rgba(0, 0, 0, 0.5);
+  margin 100px auto
+  header
+    height 20px
+    line-height 20px
+    padding 10px
+    position relative
+    display flex
+    align-items center
+    justify-content space-between
+    #show-color
+      // position absolute
+      // top 20px
+      // left 20px
+      background khaki
+      width 7px
+      height 7px
+      border-radius 50%
+      cursor pointer
+      margin-left 10px
+      margin-top 5px
+
+    #show-menu
+      // position absolute
+      // top 13px
+      // right 20px
+      font-size 0.9em
+      cursor pointer
+      margin-right 10px
+      margin-top 10px
+
+    #back-to-calendar
+      font-size 1.3em
+      color gray
+      cursor pointer
+
+  article
+    height 100%
+    > .active
+      display block
+    > div
+      display none
+      position relative
+      height 100%
+    #choose-color-section
+      width 70%
+      margin 0 auto
+      text-align center
+      h3
+        margin-bottom 60px
+      > div
+        display flex
+        align-items center
+        justify-content space-between
+        margin-bottom 20px
+        span
+          width 0px
+          height 0px
+          opacity 0
+          border-radius 50%
+          border 4px solid transparent
+          cursor pointer
+          transition 0.3s ease all
+          &.active,
+          &:hover
+            border-color white
+        #tomato
+          background tomato
+        #orangered-light
+          background orangered-light
+        #mediumvioletred
+          background mediumvioletred
+        #crimson
+          background crimson
+        #orangered
+          background orangered
+        #darkorange
+          background darkorange
+        #sandybrown
+          background sandybrown
+        #khaki
+          background khaki
+        #yellowgreen
+          background yellowgreen
+        #turquoise
+          background turquoise
+        #darkcyan
+          background darkcyan
+        #dodgerblue
+          background dodgerblue
+        #dodgerblue-dark
+          background dodgerblue-dark
+        #blue
+          background blue
+        #blueviolet
+          background blueviolet
+        #darkviolet
+          background darkviolet
+    #calendar-section
+      text-align center
+      width 85%
+      margin 0 auto
+
+      .fc-slats,
+      .fc-content-skeleton,
+      .fc-bgevent-skeleton
+        pointer-events none
+      .fc-bgevent,
+      .fc-event-container
+        pointer-events auto
+      .fc-right
+        margin-right 60px
+      .fc-left
+        margin-left 60px
+      .fc-left,
+      .fc-right
+        button
+          background none
+          box-shadow none
+          outline none
+          border none
+          color gray
+          padding-bottom 8px
+      .fc-center
+        color khaki
+        font-size 1em
+      .fc-day-grid
+        margin-top 25px
+      .fc-day-grid-container
+        height auto !important
+        overflow hidden
+      .fc-other-month
+        visibility hidden
+      .fc-day,
+      .fc-day-number
+        text-align center
+        cursor pointer
+        z-index 99999
+        position relative
+        padding-right 15px
+      .fc-row
+        min-height 1.5em
+      .fc-widget-header,
+      .fc-widget-content
+        border none
+        font-size 1.15em
+      .fc-today
+        background transparent
+        color khaki
+      .with-event
+        position relative
+        &:after
+          content ''
+          position absolute
+          height 28px
+          width 28px
+          border 2px solid khaki
+          border-radius 50%
+          display block
+          top 0
+          left 0
+          right 5px
+          margin 0 auto
+      .add-event-active:after
+        background khaki
+      .td-with-event
+        color #29323f
+    #event-section
+      width 95%
+      margin 0 auto
+      text-align center
+      margin-top 30px
+      #weather
+        span
+          display flex
+          align-items center
+          justify-content center
+          .fa
+            font-size 3em
+            margin-right 10px
+          h4
+            font-size 3em
+            margin 0
+            font-weight 300
+      #event-description
+        position absolute
+        bottom 70px
+        padding 10px
+        background white
+        color #333
+        &:before
+          content ''
+          background rgba(255, 255, 255, 0.3)
+          position absolute
+          height 10px
+          margin 0 auto
+          left 0
+          right 0
+          top -10px
+          width 95%
+        h4
+          font-size 1.6em
+          margin-top 10px
+        > div
+          display flex
+          justify-content space-between
+          div
+            padding 0 5px
+            .fa
+              color #8588cf
+              display block
+              font-size 1.8em
+              strong
+                text-transform uppercase
+                font-size 0.8em
+              p
+                color gray
+                font-size 0.8em
