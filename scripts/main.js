@@ -4,7 +4,7 @@ $(function(){
   var updateColor = function(){
     $('.background-color').css('background', current_color);
     $('.fc-center h2').css('color', current_color);
-    $('.with-event').css('color', current_color);
+    $('.with-event').css('border-color', current_color);
     $('.fc-today').css('color', current_color);
   };
 
@@ -54,6 +54,8 @@ $(function(){
       height: '0',
       opacity: '0'
     });
+
+    updateColor();
   });
 
   $('#choose-color-section span').on('click', function(e){
@@ -79,7 +81,8 @@ $(function(){
     dayNamesShort:['D', 'L', 'M', 'M', 'J', 'V', 'S'],
     dayRender: function(date, cell){
       if (date.format('YYYY-MM-DD') == '2017-07-15') {
-        cell.addClass('with-event');
+        cell.addClass('has-event');
+        cell.append('<span class="with-event"></span>');
       }
     }
   });
